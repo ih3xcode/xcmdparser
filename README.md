@@ -1,27 +1,18 @@
-# cmdparser
-
-![](https://github.com/XUJINKAI/cmdparser/actions/workflows/test.yml/badge.svg)
+# xcmdparser
+_Originally derived from [XUJINKAI/cmdparser](github.com/XUJINKAI/cmdparser)_
 
 Command parser library (C/C++), with highly customizable.
-
-命令行参数解析库，支持子命令嵌套，支持自定义错误语言，以及更多可定制化内容。
 
 ## Feature
 
 - Friendly API, configuration in ONE struct
-
 - Follow GNU/POSIX option conversion, short/long option supported
-
 - Nested sub-commands support, and they can share same logic
-
 - Global option supported
-
 - Parse strict: repeat option detect
-
 - Highly customizable: Hide/Disable options or sub-commands, Language (error message), help option, doc generator, output stream, etc.
 
-Demo:
-
+## Demo
 Short option: `-a -b -n XJK` can be shorten to `-abn XJK` (`-nab XJK` as well)
 
 Long option: `--name=XJK` can be write as `--name XJK`
@@ -40,9 +31,7 @@ Repeat option detect: `-a -b -a` will cause error
 
 [test](test) Unit Tests covers most features.
 
-[xx-crypto-cli](https://github.com/XUJINKAI/xx-crypto-cli) A real example with plenty of commands.
-
-## Document
+## Documentation
 
 ### Get Started
 
@@ -89,20 +78,6 @@ You can custom your own error message.
 
 ## Credits
 
-[utest.h](https://github.com/sheredom/utest.h)
+- [cmdparser](https://github.com/XUJINKAI/cmdparser)
+- [utest.h](https://github.com/sheredom/utest.h)
 
-## License
-
-Copyright 2022 github.com/XUJINKAI/cmdparser. All Rights Reserved.  
-
-Licensed under the Apache License, Version 2.0 (the "License");  
-you may not use this file except in compliance with the License.  
-You may obtain a copy of the License at  
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software  
-distributed under the License is distributed on an "AS IS" BASIS,  
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  
-See the License for the specific language governing permissions and  
-limitations under the License.
