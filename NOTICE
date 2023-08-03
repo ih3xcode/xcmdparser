@@ -1,0 +1,9 @@
+xcmdparser
+Copyright 2023 h3xcode <h3xcode@disroot.org>
+
+This product includes software originally developed by XUJINKAI (github.com/XUJINKAI/cmdparser),
+Copyright 2022 github.com/XUJINKAI/cmdparser
+Licensed under the Apache License, Version 2.0 (the "License").
+
+Additional third-party components included in this product:
+- utest (https://github.com/sheredom/utest.h), License: Unlicense
