@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 
 project(
     xcmdparser
-    VERSION 1.0
+    VERSION 1.0.0
     DESCRIPTION "Command-line parser library, fully tested, highly customizable"
     LANGUAGES C
 )
