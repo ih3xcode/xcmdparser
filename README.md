@@ -1,5 +1,5 @@
 # xcmdparser
-_Originally derived from [XUJINKAI/cmdparser](github.com/XUJINKAI/cmdparser)_
+_Originally derived from [XUJINKAI/cmdparser](https://github.com/XUJINKAI/cmdparser)_
 
 Command parser library (C/C++), with highly customizable.
 
