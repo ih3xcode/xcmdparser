@@ -25,11 +25,11 @@ Repeat option detect: `-a -b -a` will cause error
 
 ## Examples
 
-[demo_simple](demo_simple/main.c) is an basic demo about parse options.
+[simple](demo/simple/main.c) is an basic demo about parse options.
 
-[demo_git](demo_git) follows git commands demos how to handle complex sub-commands/options.
+[git](demo/git) follows git commands demos how to handle complex sub-commands/options.
 
-[test](test) Unit Tests covers most features.
+[tests](tests) Unit Tests covers most features.
 
 ## Documentation
 

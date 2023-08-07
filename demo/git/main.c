@@ -1,4 +1,4 @@
-#include "cmdparser.h"
+#include "xcmdparser.h"
 
 extern cmdp_command_st cmdp_clone;
 extern cmdp_command_st cmdp_pull;
