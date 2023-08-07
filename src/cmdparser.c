@@ -28,6 +28,13 @@
 #define fileno _fileno
 #endif
 
+#ifndef HAVE_ISATTY
+// Some systems (e.g. Android) don't have isatty() function.
+// As this function is only used for printing colorized text,
+// we can just disable colorized output on these systems.
+#define isatty(fd) 0
+#endif
+
 // ============================================================================
 // utils
 // ============================================================================
