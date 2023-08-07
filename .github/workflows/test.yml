@@ -30,4 +30,4 @@ jobs:
 
     - name: Test
       working-directory: ${{github.workspace}}/build
-      run: build/tests/xcmdparser_test
+      run: tests/xcmdparser_test
