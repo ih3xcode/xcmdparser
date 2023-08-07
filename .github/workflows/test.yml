@@ -6,16 +6,28 @@ on:
   pull_request:
     branches: [ "master" ]
 
-jobs:
-  build:
+env:
+  BUILD_TYPE: Release
 
+jobs:
+  test:
+    name: Run tests
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: install valgrind
-      run: sudo apt install -y valgrind
-    - name: make
-      run: make
-    - name: make test
-      run: make test
+      with:
+        submodules: recursive
+
+
+    - name: Configure CMake
+      working-directory: ${{github.workspace}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      working-directory: ${{github.workspace}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: build/tests/xcmdparser_test
