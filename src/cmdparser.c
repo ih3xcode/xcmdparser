@@ -26,7 +26,7 @@
 #define isatty _isatty
 #define fileno _fileno
 #else
-// Some platforms (e.g. Android) don't have isatty() function.
+// Some platforms don't have isatty() function.
 // Since we don't have a way to detect whether the output is a terminal or not,
 // and it is not a good idea to assume the output is a terminal by default,
 // we disable the color output by default.
