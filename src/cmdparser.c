@@ -19,19 +19,17 @@
 #include <string.h>
 
 // isatty
-#if defined(__GLIBC__)
+#if defined(HAVE_UNISTD_ISATTY)
 #include <unistd.h>
-#endif
-#if defined(_MSC_VER)
+#elif defined(HAVE_IO_ISATTY)
 #include <io.h>
 #define isatty _isatty
 #define fileno _fileno
-#endif
-
-#ifndef HAVE_ISATTY
-// Some systems (e.g. Android) don't have isatty() function.
-// As this function is only used for printing colorized text,
-// we can just disable colorized output on these systems.
+#else
+// Some platforms (e.g. Android) don't have isatty() function.
+// Since we don't have a way to detect whether the output is a terminal or not,
+// and it is not a good idea to assume the output is a terminal by default,
+// we disable the color output by default.
 #define isatty(fd) 0
 #endif
 

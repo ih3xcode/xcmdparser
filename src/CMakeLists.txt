@@ -7,13 +7,14 @@ add_library(xcmdparser STATIC
 
 # check if isatty function exists
 include(CheckSymbolExists)
-check_symbol_exists(isatty "unistd.h" HAVE_ISATTY)
-if(NOT HAVE_ISATTY)
-  check_symbol_exists(_isatty "io.h" HAVE_ISATTY)
-endif()
-
-if(HAVE_ISATTY)
-  target_compile_definitions(xcmdparser PUBLIC HAVE_ISATTY)
+check_symbol_exists(isatty "unistd.h" HAVE_UNISTD_ISATTY)
+if(HAVE_UNISTD_ISATTY)
+    target_compile_definitions(xcmdparser PRIVATE HAVE_UNISTD_ISATTY)
+else()
+    check_symbol_exists(_isatty "io.h" HAVE_IO_ISATTY)
+    if(HAVE_IO_ISATTY)
+        target_compile_definitions(xcmdparser PRIVATE HAVE_IO_ISATTY)
+    endif()
 endif()
 target_include_directories(xcmdparser PUBLIC ../include)
 
