@@ -5,12 +5,12 @@ Command parser library (C/C++), with highly customizable.
 
 ## Feature
 
-- Friendly API, configuration in ONE struct
-- Follow GNU/POSIX option conversion, short/long option supported
-- Nested sub-commands support, and they can share same logic
-- Global option supported
-- Parse strict: repeat option detect
-- Highly customizable: Hide/Disable options or sub-commands, Language (error message), help option, doc generator, output stream, etc.
+-  Friendly API, configuration in ONE struct
+-  Follow GNU/POSIX option conversion, short/long option supported
+-  Nested sub-commands support, and they can share same logic
+-  Global option supported
+-  Parse strict: repeat option detect
+-  Highly customizable: Hide/Disable options or sub-commands, Language (error message), help option, doc generator, output stream, etc.
 
 ## Demo
 Short option: `-a -b -n XJK` can be shorten to `-abn XJK` (`-nab XJK` as well)
@@ -78,5 +78,5 @@ You can custom your own error message.
 
 ## Credits
 
-- [cmdparser](https://github.com/XUJINKAI/cmdparser)
-- [utest.h](https://github.com/sheredom/utest.h)
+-  [cmdparser](https://github.com/XUJINKAI/cmdparser)
+-  [utest.h](https://github.com/sheredom/utest.h)
