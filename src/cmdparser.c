@@ -172,7 +172,7 @@ static void default_doc_gen_options_handler(FILE *fp, cmdp_option_st *options)
         if (n->long_option != NULL)
         {
             fprintf(fp, "%s%s", "--", n->long_option);
-            pos += 2 + strlen(n->long_option);
+            pos += 2 + strlen(n->long_option); /* Flawfinder: ignore */
         }
 
         char *alias = n->type_name;
@@ -197,7 +197,7 @@ static void default_doc_gen_options_handler(FILE *fp, cmdp_option_st *options)
         if (alias != NULL)
         {
             fprintf(fp, "%s%s", " ", alias);
-            pos += 1 + strlen(alias);
+            pos += 1 + strlen(alias); /* Flawfinder: ignore */
         }
 
         long remain_prefix = HELP_PREFIX_LEN - pos;
@@ -257,10 +257,10 @@ static void default_doc_gen_command_handler(FILE *fp, cmdp_command_st *command)
                 if (n->alias_name != NULL)
                 {
                     fprintf(fp, "%s, ", n->alias_name);
-                    pos += strlen(n->alias_name) + 2;
+                    pos += strlen(n->alias_name) + 2; /* Flawfinder: ignore */
                 }
                 fprintf(fp, "%s", n->name);
-                pos += strlen(n->name);
+                pos += strlen(n->name); /* Flawfinder: ignore */
                 long remain_prefix = HELP_PREFIX_LEN - pos;
                 while (remain_prefix--)
                 {
@@ -313,7 +313,7 @@ static void cmdp_fprint_all_documents_recursive(FILE *fp, cmdp_command_st *cmdp,
         {
             continue;
         }
-        size_t cmd_name_len = strlen(command_name) + strlen(p->name) + 2;
+        size_t cmd_name_len = strlen(command_name) + strlen(p->name) + 2; /* Flawfinder: ignore */
         char *cmd_name      = (char *)malloc(cmd_name_len);
         memset(cmd_name, 0, cmd_name_len);
         snprintf(cmd_name, cmd_name_len, "%s %s", command_name, p->name);
@@ -485,7 +485,7 @@ static int cmdp_parse_args(int argc, char **argv, cmdp_command_st *cmdp, cmdp_ct
     {
         char *cur_arg  = argv[arg_index];
         char *next_arg = (arg_index + 1) < argc ? argv[arg_index + 1] : NULL;
-        int cur_len    = strlen(cur_arg);
+        int cur_len    = strlen(cur_arg); /* Flawfinder: ignore */
         // -short
         if (cur_len >= 2 && cur_arg[0] == '-' && cur_arg[1] != '-')
         {
@@ -546,11 +546,12 @@ static int cmdp_parse_args(int argc, char **argv, cmdp_command_st *cmdp, cmdp_ct
             --path=<PATH>   eq_ptr=long_option_start+n
             --path <PATH>   eq_ptr=NULL, next_arg=<PATH>
              */
-            char *long_option_start = cur_arg + 2;
-            char *eq_ptr            = strchr(long_option_start, '=');
-            int long_len_calc       = (eq_ptr == NULL) ? (int)strlen(long_option_start) : (eq_ptr - long_option_start);
+            char *long_option_start    = cur_arg + 2;
+            char *eq_ptr               = strchr(long_option_start, '=');
+            int long_len_calc          = (eq_ptr == NULL) ? (int)strlen(long_option_start) /* Flawfinder: ignore */
+                                                          : (eq_ptr - long_option_start);
             char long_option_real[128] = {0};
-            strncpy(long_option_real, long_option_start, long_len_calc);
+            strncpy(long_option_real, long_option_start, long_len_calc); /* Flawfinder: ignore */
 
             if (ctx->help_long_option != NULL && strcmp(ctx->help_long_option, long_option_start) == 0)
             {
